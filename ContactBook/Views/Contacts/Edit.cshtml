@@ -1,0 +1,150 @@
+﻿@model ContactBook.Models.Contact
+
+@{
+    Layout = null;
+    ViewData["Title"] = "Edit";
+}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <title>Edit</title>
+    <style>
+        .input {
+            position: relative;
+            width: 553px;
+            height: 70px;
+            margin: 20px 40px;
+            background: #FFFFFF;
+            border: 2px solid #7C2B6F;
+            box-sizing: border-box;
+            border-radius: 20px;
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 30px;
+            padding: 15px;
+        }
+
+        .input_div {
+            position: absolute;
+            width: 628px;
+            height: 664px;
+            right: 92px;
+            top: 70px;
+            padding-top: 60px;
+            background: #FFFFFF;
+            box-shadow: 5px 2px 50px 5px rgba(0, 0, 0, 0.25);
+        }
+
+        .btn {
+            position: relative;
+            width: 204px;
+            height: 76px;
+            margin: 20px;
+            margin-bottom: 5px;
+            left: 200px;
+            background: #7C2B6F;
+            border-radius: 100px;
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 30px;
+            line-height: 35px;
+            color: #FFFFFF;
+        }
+
+        .btn1 {
+            position: relative;
+            width: 157px;
+            height: 35px;
+            left: 240px;
+            margin: 10px;
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 30px;
+            line-height: 35px;
+            color: #dce3de;
+        }
+
+        .img_div .img {
+            position: absolute;
+            width: 100%;
+            height: 545px;
+            left: 0px;
+            top: 429px;
+        }
+
+        ._h1 {
+            position: absolute;
+            width: 621px;
+            height: 126px;
+            left: 50px;
+            top: 104px;
+            font-family: Source Sans Pro;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 100px;
+            line-height: 126px;
+            /* identical to box height */
+            color: #000000;
+        }
+
+        :-ms-input-placeholder {
+            color: #000000;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="_h1">Edit contact</h1>
+    <div class="img_div">
+        <img src="~/Img/XL2cut.jpg" alt="Alternate Text" class="img" />
+    </div>
+   
+    <div class="row">
+        <div class="input_div">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+
+                    <input asp-for="fullName" class="input" placeholder="full Name" />
+                    <span asp-validation-for="fullName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+
+                    <input asp-for="email" class="input" placeholder="email" />
+                    <span asp-validation-for="email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+
+                    <input asp-for="phoneNumber" class="input" placeholder="phone Number" />
+                    <span asp-validation-for="phoneNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+
+                    <input asp-for="address" class="input" placeholder="address" />
+                    <span asp-validation-for="address" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn" />
+                </div>
+                <div class="btn1">
+                    <a asp-action="Index">Back to List</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+</body>
+</html>
+

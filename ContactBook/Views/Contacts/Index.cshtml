@@ -1,0 +1,192 @@
+﻿@model IEnumerable<ContactBook.Models.Contact>
+
+@{
+    Layout = null;
+    ViewData["Title"] = "Index";
+}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <title>Contact Book</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .btn1 {
+            position: relative;
+            width: 252px;
+            height: 63px;
+            left: 93px;
+            top: 70px;
+            background: #FFFFFF;
+            border: 3px solid #7C2B6F;
+            box-sizing: border-box;
+            border-radius: 100px;
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 30px;
+            line-height: 35px;
+            color: #7C2B6F;
+        }
+        .btn2 {
+            width: 50px;
+            height: 32px;
+            border: 2px solid #7C2B6F;
+            box-sizing: border-box;
+            border-radius: 100px;
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 12px;
+            line-height: 26px;
+            background-color: #F8EEF6;
+            /* identical to box height */
+            color: #7C2B6F;
+        }
+        .btn1:hover{
+            color: #FFFFFF;
+            background: #7C2B6F;
+        }
+        .btn2:hover {
+            color: #FFFFFF;
+            background: #7C2B6F;
+        }
+        ._h1 {
+            position: relative;
+            width: 578px;
+            height: 126px;
+            left: 93px;
+            top: 74px;
+            font-family: Source Sans Pro;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 100px;
+            line-height: 126px;
+            /* identical to box height */
+            color: #000000;
+        }
+
+        .main_div {
+            position: absolute;
+            background-color: white;
+            margin: 20px;
+            width: 1480px;
+            height: auto;
+        }
+        ._table {
+            border-collapse: separate;
+            position: relative;
+            margin: 100px 10px;
+        }
+        table, tr, td {
+            width: 1460px;
+            border: none;
+            border-collapse: separate;
+            border-spacing: 0 15px;
+        }
+        .tr_th {
+            height: 71px;
+            background: #C983BD;
+            text-align: left;
+           
+        }
+        .tr_td {
+            margin: 5px;
+            height: 71px;
+            background: #F8EEF6;
+        }
+        th {
+            padding: 0 50px;
+            font-family: Source Sans Pro;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 22px;
+            line-height: 28px;
+            color: #7C2B6F;
+        }
+        td {
+            padding: 0 50px;
+        }
+        .first {
+            border-bottom-left-radius: 20px;
+            border-top-left-radius: 20px;
+        }
+        .last {
+            border-bottom-right-radius: 20px;
+            border-top-right-radius: 20px;
+            padding:0;
+            flex-wrap:wrap;
+        }
+    </style>
+</head>
+<body>
+    <img style="position: absolute; width: 1522px;  " src="~/Img/XL2.jpg" alt="Alternate Text" />
+
+    <div class="main_div">
+        <h1 class="_h1">Contact Book</h1>
+        <form>
+            <input type="submit" name="name" asp-action="Create" value="Create new" class="btn1" />
+        </form>
+       
+
+        <table class="_table" cellspacing="0" cellpadding="0">
+            <thead>
+                <tr class="tr_th">
+                    <th class="first">
+                        @Html.DisplayNameFor(model => model.fullName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.email)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.phoneNumber)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.address)
+                    </th>
+                    <th class="last"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class="tr_td">
+                        <td class="first">
+                            @Html.DisplayFor(modelItem => item.fullName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.phoneNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.address)
+                        </td>
+                        <td class="last">
+                         
+                            <form>
+                                <input type="submit" name="a" asp-action="Edit" asp-route-id="@item.Id" value="Edit" class="btn2"/>
+                                <input type="submit" name="name" asp-action="Details" asp-route-id="@item.Id" value="Details"class="btn2" />
+                                <input type="submit" name="c" asp-action="Delete" asp-route-id="@item.Id" value="Delete"class="btn2" />
+                            </form>
+
+
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+       
+    </div>
+</body>
+</html>

@@ -1,0 +1,179 @@
+﻿@model ContactBook.Models.Contact
+
+@{
+    Layout = null;
+    ViewData["Title"] = "Details";
+}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Detils</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .info_div {
+            position: absolute;
+            width: 1151px;
+            height: 534px;
+            left: 154px;
+            top: 145px;
+            background: #FFFFFF;
+            border-radius: 20px;
+        }
+
+        .col_name {
+            position: relative;
+            width: 158px;
+            height: 50px;
+            left: 200px;
+            font-family: Source Sans Pro;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 40px;
+            line-height: 50px;
+            color: #7C2B6F;
+        }
+
+
+
+        ._h3 {
+            position: relative;
+            left: 430px;
+            top: 80px;
+            font-family: Source Sans Pro;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 48px;
+            line-height: 60px;
+            color: #30292F;
+        }
+
+        ._h4 {
+            position: relative;
+            width: 260px;
+            height: 50px;
+            left: 430px;
+            top: 40px;
+            font-family: Source Sans Pro;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 40px;
+            line-height: 50px;
+            text-align: center;
+            color: #30292F;
+        }
+
+        .icone {
+            position: absolute;
+            left: 43.06%;
+            right: 43.06%;
+            top: -16.28%;
+            bottom: 71.19%;
+            width: 160px;
+        }
+
+        ._table {
+            position: relative;
+            width: 840px;
+            height: 234px;
+            left: 160px;
+            top: 60px;
+        }
+
+        .btn {
+            text-decoration: none;
+            position: relative;
+            width: 204px;
+            height: 76px;
+            margin: 60px;
+            margin-bottom: 5px;
+            border: 5px solid #7C2B6F;
+            box-sizing: border-box;
+            border-radius: 100px;
+            background-color:white;
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 30px;
+            text-align: center;
+            line-height: 35px;
+            color: #7C2B6F;
+        }
+            .btn:hover {
+                background: #7C2B6F;
+                color: #FFFFFF;
+            }
+        .btn1 {
+            left: 80px;
+        }
+
+        .td1 {
+            font-family: Source Sans Pro;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 30px;
+            line-height: 50px;
+            color: #7C2B6F;
+        }
+
+        .td2 {
+            text-align: right;
+            font-family: Source Sans Pro;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 30px;
+            line-height: 50px;
+            color: #7C2B6F;
+        }
+    </style>
+</head>
+<body>
+    <img style="position: absolute; width: 1620px; height: 850px; " src="~/Img/XL2.jpg" alt="Alternate Text" />
+
+    <div class="info_div">
+        <img src="~/Img/icons8-info400.svg" alt="Alternate Text" class="icone" />
+        <h3 class="_h3">Contact details</h3>
+        
+
+            <table class="_table">
+                <tr>
+                    <td class="td1"> @Html.DisplayNameFor(model => model.fullName) </td>
+                    <td class="td2"> @Html.DisplayFor(model => model.fullName)</td>
+
+                </tr>
+                <tr>
+                    <td class="td1"> @Html.DisplayNameFor(model => model.email)</td>
+                    <td class="td2"> @Html.DisplayFor(model => model.email)</td>
+
+                </tr>
+                <tr>
+                    <td class="td1"> @Html.DisplayNameFor(model => model.phoneNumber)</td>
+                    <td class="td2">  @Html.DisplayFor(model => model.phoneNumber)</td>
+
+                </tr>
+                <tr>
+                    <td class="td1"> @Html.DisplayNameFor(model => model.address)</td>
+                    <td class="td2">@Html.DisplayFor(model => model.address)</td>
+
+                </tr>
+            </table>
+        
+
+
+        <form  style="position:relative; display:flex; flex-wrap:wrap; left:220px; top:20px;">
+            <input type="submit" name="name" asp-action="Edit" asp-route-id="@Model.Id" value="Edit" class="btn" />
+            <input type="submit" name="name" asp-action="Index" value="Back to List" class="btn btn1" />
+        </form>
+    </div>
+</body>
+</html>
